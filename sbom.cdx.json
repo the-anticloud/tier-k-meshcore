@@ -1,0 +1,38 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:1587e05d-b698-55a2-8e70-15823e150c70",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-14T06:00:37Z",
+    "component": {
+      "type": "application",
+      "name": "K_MESHCORE",
+      "version": "a366955cb2f6",
+      "bom-ref": "pkg:generic/anticloud/K_MESHCORE@a366955cb2f6",
+      "purl": "pkg:generic/anticloud/K_MESHCORE@a366955cb2f6",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "a366955cb2f67b8e6842d4f00d2b6a554dddd88a"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/meshcore-dev/MeshCore"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": []
+}

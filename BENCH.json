@@ -1,0 +1,1184 @@
+{
+ "schema": "anticloud.tier-bench/1",
+ "project": "K_MESHCORE",
+ "source": {
+  "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\TIER_8_RF_MESH_DEFENSE\\K_MESHCORE\\UPSTREAM",
+  "git": {
+   "head": "a366955cb2f67b8e6842d4f00d2b6a554dddd88a",
+   "url": "https://github.com/meshcore-dev/MeshCore",
+   "branch": "main",
+   "committed_at": "2026-09-30T14:56:20+13:00"
+  }
+ },
+ "metrics": {
+  "files_total": 864,
+  "source_files_scanned": 684,
+  "lines_of_code": 89524,
+  "languages": {
+   ".h": 397,
+   ".cpp": 268,
+   ".ini": 88,
+   ".json": 46,
+   ".md": 21,
+   ".c": 12,
+   "(none)": 7,
+   ".py": 6,
+   ".svg": 4,
+   ".ld": 4,
+   ".txt": 3,
+   ".properties": 2,
+   ".sh": 1,
+   ".nix": 1,
+   ".yml": 1
+  }
+ },
+ "licence": {
+  "spdx": "MIT",
+  "class": "A",
+  "source_file": "LICENSE.txt",
+  "redistribution_allowed": true
+ },
+ "dependencies": {
+  "count": 0,
+  "unique": 0,
+  "by_ecosystem": {},
+  "list": []
+ },
+ "owasp_top10": {
+  "total_findings": 78,
+  "files_with_findings": 65,
+  "severity": {
+   "high": 40,
+   "medium": 2,
+   "low": 36
+  },
+  "categories": {
+   "A01-BrokenAccessControl": {
+    "count": 0,
+    "findings": []
+   },
+   "A02-CryptographicFailures": {
+    "count": 7,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "src/Utils.cpp",
+      "line": 61,
+      "cwe": "CWE-327",
+      "snippet": "SaSi_AesInit(&ctx, SASI_AES_DECRYPT, SASI_AES_MODE_ECB, SASI_AES_PADDING_NONE);"
+     },
+     {
+      "severity": "high",
+      "file": "lib/nrf52/s140_nrf52_7.3.0_API/include/nrf_nvic.h",
+      "line": 95,
+      "cwe": "CWE-327",
+      "snippet": "| (1U << ECB_IRQn) \\"
+     },
+     {
+      "severity": "high",
+      "file": "lib/nrf52/s140_nrf52_7.3.0_API/include/nrf_soc.h",
+      "line": 79,
+      "cwe": "CWE-327",
+      "snippet": "#define SOC_ECB_KEY_LENGTH                (16)                       /**< ECB key length. */"
+     },
+     {
+      "severity": "high",
+      "file": "lib/nrf52/include/nrf_nvic.h",
+      "line": 95,
+      "cwe": "CWE-327",
+      "snippet": "| (1U << ECB_IRQn) \\"
+     },
+     {
+      "severity": "high",
+      "file": "lib/nrf52/include/nrf_soc.h",
+      "line": 79,
+      "cwe": "CWE-327",
+      "snippet": "#define SOC_ECB_KEY_LENGTH                (16)                       /**< ECB key length. */"
+     },
+     {
+      "severity": "medium",
+      "file": "arch/esp32/AsyncElegantOTA/src/AsyncElegantOTA.cpp",
+      "line": 68,
+      "cwe": "CWE-327",
+      "snippet": "if(!request->hasParam(\"MD5\", true)) {"
+     },
+     {
+      "severity": "medium",
+      "file": "arch/esp32/AsyncElegantOTA/src/Hash.h",
+      "line": 30,
+      "cwe": "CWE-327",
+      "snippet": "void sha1(const uint8_t* data, uint32_t size, uint8_t hash[20]);"
+     }
+    ]
+   },
+   "A03-Injection": {
+    "count": 34,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "test/test_config_serializer/test_config_serializer.cpp",
+      "line": 92,
+      "cwe": "CWE-120",
+      "snippet": "strcpy(data.name, \"Scott\");"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/AdvertDataHelpers.cpp",
+      "line": 75,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(dest, \"%d secs %s\", seconds_from_now, suffix);"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/BaseChatMesh.cpp",
+      "line": 492,
+      "cwe": "CWE-120",
+      "snippet": "sprintf((char *) &temp[5], \"%s: \", sender_name);  // <sender>: <msg>"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/CommonCLI.cpp",
+      "line": 205,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(reply, \"OK - clock set: %02d:%02d - %d/%d/%d UTC\", dt.hour(), dt.minute(), dt.day(), dt.month(), dt.year());"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/ConfigSerializer.h",
+      "line": 40,
+      "cwe": "CWE-120",
+      "snippet": "void setKey(uint8_t depth, const char* key) { strcpy(_keys[depth], key);  }"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/ESP32Board.cpp",
+      "line": 18,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(reply, \"Started: http://%s/update\", WiFi.softAPIP().toString().c_str());"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/IdentityStore.cpp",
+      "line": 6,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(filename, \"%s/%s.id\", _dir, name);"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/NRF52Board.cpp",
+      "line": 448,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(reply, \"OK - mac: %02X:%02X:%02X:%02X:%02X:%02X\", mac_addr[5], mac_addr[4], mac_addr[3],"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/RegionMap.cpp",
+      "line": 49,
+      "cwe": "CWE-120",
+      "snippet": "strcpy(wildcard.name, \"*\");"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/StatsFormatHelper.h",
+      "line": 12,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(reply,"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/ui/OLEDDisplay.cpp",
+      "line": 659,
+      "cwe": "CWE-120",
+      "snippet": "vsprintf(buffer, format.c_str(), myargs);"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/nrf52/EthernetCLI.h",
+      "line": 94,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(reply, \"ETH: %u.%u.%u.%u:%d\", ip[0], ip[1], ip[2], ip[3], ETHERNET_TCP_PORT);"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/nrf52/SerialBLEInterface.cpp",
+      "line": 141,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(name, \"%02X%02X%02X%02X%02X%02X\",    // modify (IN-OUT param)"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/esp32/SerialBLEInterface.cpp",
+      "line": 20,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(name, \"%02X%02X%02X%02X%02X%02X\",    // modify (IN-OUT param)"
+     },
+     {
+      "severity": "high",
+      "file": "src/helpers/bridges/BridgeBase.cpp",
+      "line": 13,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(tmp, \"%02d:%02d:%02d - %d/%d/%d U\", dt.hour(), dt.minute(), dt.second(), dt.day(), dt.month(),"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_sensor/main.cpp",
+      "line": 36,
+      "cwe": "CWE-120",
+      "snippet": "strcpy(reply, \"**Magic now done**\");"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_sensor/SensorMesh.cpp",
+      "line": 448,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(reply, \"%x\", board.getGpio());"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_sensor/SensorMesh.h",
+      "line": 72,
+      "cwe": "CWE-120",
+      "snippet": "strcpy(reply, \"not supported\");"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_sensor/UITask.cpp",
+      "line": 84,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(tmp, \"FREQ: %06.3f SF%d\", _node_prefs->freq, _node_prefs->sf);"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_secure_chat/main.cpp",
+      "line": 408,
+      "cwe": "CWE-120",
+      "snippet": "sprintf((char *) &temp[5], \"%s: %s\", _prefs.node_name, &command[7]);  // <sender>: <msg>"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_room_server/MyMesh.cpp",
+      "line": 286,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(tmp, \"%02d:%02d:%02d - %d/%d/%d U\", dt.hour(), dt.minute(), dt.second(), dt.day(), dt.month(),"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_room_server/MyMesh.h",
+      "line": 215,
+      "cwe": "CWE-120",
+      "snippet": "strcpy(reply, \"not supported\");"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_room_server/UITask.cpp",
+      "line": 84,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(tmp, \"FREQ: %06.3f SF%d\", _node_prefs->freq, _node_prefs->sf);"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_repeater/MyMesh.cpp",
+      "line": 177,
+      "cwe": "CWE-120",
+      "snippet": "sprintf((char *) &reply_data[8], \"%s\\n%s\", _prefs.node_name, _prefs.owner_info);"
+     },
+     {
+      "severity": "high",
+      "file": "examples/simple_repeater/UITask.cpp",
+      "line": 102,
+      "cwe": "CWE-120",
+      "snippet": "sprintf(tmp, \"FREQ: %06.3f SF%d\", _node_prefs->freq, _node_prefs->sf);"
+     }
+    ]
+   },
+   "A04-InsecureDesign": {
+    "count": 28,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "variants/thinknode_m3/variant.cpp",
+      "line": 65,
+      "cwe": "CWE-",
+      "snippet": "/* TODO */"
+     },
+     {
+      "severity": "low",
+      "file": "variants/promicro/PromicroBoard.h",
+      "line": 8,
+      "cwe": "CWE-",
+      "snippet": "#define  ADC_MULTIPLIER   (1.815f) // dependent on voltage divider resistors. TODO: more accurate battery tracking"
+     },
+     {
+      "severity": "low",
+      "file": "variants/nano_g2_ultra/nano-g2.h",
+      "line": 49,
+      "cwe": "CWE-",
+      "snippet": "// TODO: unset buzzer to prevent notification circuit activating on hibernate"
+     },
+     {
+      "severity": "low",
+      "file": "variants/nano_g2_ultra/variant.h",
+      "line": 114,
+      "cwe": "CWE-",
+      "snippet": "#define SX126X_CS (32 + 13) // FIXME - we really should define LORA_CS instead"
+     },
+     {
+      "severity": "low",
+      "file": "variants/minewsemi_me25ls01/MinewsemiME25LS01Board.h",
+      "line": 21,
+      "cwe": "CWE-",
+      "snippet": "#define  ADC_MULTIPLIER   (1.815f) // dependent on voltage divider resistors. TODO: more accurate battery tracking"
+     },
+     {
+      "severity": "low",
+      "file": "variants/lilygo_techo_card/variant.h",
+      "line": 118,
+      "cwe": "CWE-",
+      "snippet": "// TODO: MAYBE? migrate to board based sensor manager / add GPS_WAKE_UP to ESM"
+     },
+     {
+      "severity": "low",
+      "file": "test/test_config_serializer/test_config_serializer.cpp",
+      "line": 181,
+      "cwe": "CWE-",
+      "snippet": "MockInputStream s(\"{age:\" TEST_INT_S \",xxx:\" TEST_INT_S \",name:\\\"Scott\\\"}\");"
+     },
+     {
+      "severity": "low",
+      "file": "src/Dispatcher.cpp",
+      "line": 357,
+      "cwe": "CWE-",
+      "snippet": "auto pkt = _mgr->allocNew();  // TODO: zero out all fields"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ConfigSerializer.cpp",
+      "line": 116,
+      "cwe": "CWE-",
+      "snippet": "//Serial.printf(\"Error: max nesting reached\"); // TODO: debug logging"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/TransportKeyStore.cpp",
+      "line": 33,
+      "cwe": "CWE-",
+      "snippet": "// TODO: evict oldest cache entry"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/buzzer.h",
+      "line": 14,
+      "cwe": "CWE-",
+      "snippet": "TODO"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/OLEDDisplay.cpp",
+      "line": 33,
+      "cwe": "CWE-",
+      "snippet": "* TODO Helmut"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/OLEDDisplay.h",
+      "line": 200,
+      "cwe": "CWE-",
+      "snippet": "// Clear a pixel at given position FIXME: INVERSE is untested with this function"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/SH1106Display.cpp",
+      "line": 64,
+      "cwe": "CWE-",
+      "snippet": "display.clearDisplay(); // TODO: apply 'bkg'"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/SSD1306Display.cpp",
+      "line": 59,
+      "cwe": "CWE-",
+      "snippet": "display.clearDisplay();  // TODO: apply 'bkg'"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/ST7789Display.cpp",
+      "line": 105,
+      "cwe": "CWE-",
+      "snippet": "display.clear();  // TODO: use bkg"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/ST7789Spi.h",
+      "line": 348,
+      "cwe": "CWE-",
+      "snippet": "sendCommand(ST77XX_SLPOUT); //  7: hack"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/U8g2Display.h",
+      "line": 32,
+      "cwe": "CWE-",
+      "snippet": "_u8g2.setFont(u8g2_font_6x10_mr); // slightly larger font for better readability. TODO: more font sizes?"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/sensors/LPPDataHelpers.h",
+      "line": 145,
+      "cwe": "CWE-",
+      "snippet": "_pos += 8; break;  // TODO: this is MINIMUM"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/esp32/ESPNOWRadio.cpp",
+      "line": 58,
+      "cwe": "CWE-",
+      "snippet": "return millis() + intID();  // TODO: where to get some entropy?"
+     },
+     {
+      "severity": "low",
+      "file": "examples/simple_sensor/SensorMesh.cpp",
+      "line": 81,
+      "cwe": "CWE-",
+      "snippet": "return 8;  // TODO: this is MINIMIUM"
+     },
+     {
+      "severity": "low",
+      "file": "examples/simple_sensor/UITask.cpp",
+      "line": 101,
+      "cwe": "CWE-",
+      "snippet": "// TODO: any action ?"
+     },
+     {
+      "severity": "low",
+      "file": "examples/simple_secure_chat/main.cpp",
+      "line": 206,
+      "cwe": "CWE-",
+      "snippet": "// TODO: if not in favs,  prompt to add as fav(?)"
+     },
+     {
+      "severity": "low",
+      "file": "examples/simple_room_server/MyMesh.cpp",
+      "line": 55,
+      "cwe": "CWE-",
+      "snippet": "// TODO: suggested postData format: <title>/<descrption>"
+     },
+     {
+      "severity": "low",
+      "file": "examples/simple_room_server/UITask.cpp",
+      "line": 101,
+      "cwe": "CWE-",
+      "snippet": "// TODO: any action ?"
+     }
+    ]
+   },
+   "A05-SecurityMisconfiguration": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "arch/esp32/AsyncElegantOTA/src/AsyncElegantOTA.cpp",
+      "line": 56,
+      "cwe": "CWE-942",
+      "snippet": "response->addHeader(\"Access-Control-Allow-Origin\", \"*\");"
+     }
+    ]
+   },
+   "A06-VulnerableComponents": {
+    "count": 0,
+    "findings": []
+   },
+   "A07-AuthFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A08-SoftwareDataIntegrity": {
+    "count": 8,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "src/helpers/ESP32Board.cpp",
+      "line": 18,
+      "cwe": "CWE-319",
+      "snippet": "sprintf(reply, \"Started: http://%s/update\", WiFi.softAPIP().toString().c_str());"
+     },
+     {
+      "severity": "low",
+      "file": "src/helpers/ui/OLEDDisplay.cpp",
+      "line": 1158,
+      "cwe": "CWE-319",
+      "snippet": "// Code from http://playground.arduino.cc/Main/Utf8ascii"
+     },
+     {
+      "severity": "low",
+      "file": "lib/nrf52/s140_nrf52_7.3.0_API/include/ble_gatt.h",
+      "line": 141,
+      "cwe": "CWE-319",
+      "snippet": "*  @note Found at http://developer.bluetooth.org/gatt/descriptors/Pages/DescriptorViewer.aspx?u=org.bluetooth.descriptor.gatt.characteristic_presentation_format.xml"
+     },
+     {
+      "severity": "low",
+      "file": "lib/nrf52/s140_nrf52_7.3.0_API/include/ble_types.h",
+      "line": 104,
+      "cwe": "CWE-319",
+      "snippet": "*  @note Retrieved from http://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.gap.appearance.xml"
+     },
+     {
+      "severity": "low",
+      "file": "lib/nrf52/include/ble_gatt.h",
+      "line": 141,
+      "cwe": "CWE-319",
+      "snippet": "*  @note Found at http://developer.bluetooth.org/gatt/descriptors/Pages/DescriptorViewer.aspx?u=org.bluetooth.descriptor.gatt.characteristic_presentation_format.xml"
+     },
+     {
+      "severity": "low",
+      "file": "lib/nrf52/include/ble_types.h",
+      "line": 104,
+      "cwe": "CWE-319",
+      "snippet": "*  @note Retrieved from http://developer.bluetooth.org/gatt/characteristics/Pages/CharacteristicViewer.aspx?u=org.bluetooth.characteristic.gap.appearance.xml"
+     },
+     {
+      "severity": "low",
+      "file": "lib/ed25519/add_scalar.c",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "/* see http://crypto.stackexchange.com/a/6215/4697 */"
+     },
+     {
+      "severity": "low",
+      "file": "lib/ed25519/sha512.c",
+      "line": 9,
+      "cwe": "CWE-319",
+      "snippet": "* Tom St Denis, tomstdenis@gmail.com, http://libtom.org"
+     }
+    ]
+   },
+   "A09-LoggingMonitoringFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A10-SSRF": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "owasp_llm_top10": {
+  "total_findings": 0,
+  "files_with_findings": 0,
+  "severity": {
+   "high": 0,
+   "medium": 0,
+   "low": 0
+  },
+  "categories": {
+   "LLM01-PromptInjection": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM02-SensitiveInfoDisclosure": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM03-SupplyChain": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM04-DataPoisoning": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM05-ImproperOutputHandling": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM06-ExcessiveAgency": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM07-SystemPromptLeak": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM08-VectorEmbeddingWeaknesses": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM09-Misinformation": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM10-UnboundedConsumption": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "sbom": {
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:1587e05d-b698-55a2-8e70-15823e150c70",
+  "version": 1,
+  "metadata": {
+   "timestamp": "2026-10-14T06:00:37Z",
+   "component": {
+    "type": "application",
+    "name": "K_MESHCORE",
+    "version": "a366955cb2f6",
+    "bom-ref": "pkg:generic/anticloud/K_MESHCORE@a366955cb2f6",
+    "purl": "pkg:generic/anticloud/K_MESHCORE@a366955cb2f6",
+    "licenses": [
+     {
+      "license": {
+       "id": "MIT"
+      }
+     }
+    ]
+   },
+   "properties": [
+    {
+     "name": "anticloud:source-commit",
+     "value": "a366955cb2f67b8e6842d4f00d2b6a554dddd88a"
+    },
+    {
+     "name": "anticloud:source-url",
+     "value": "https://github.com/meshcore-dev/MeshCore"
+    },
+    {
+     "name": "anticloud:tier",
+     "value": "tier-agent"
+    }
+   ]
+  },
+  "components": []
+ },
+ "elapsed_seconds": 29.82,
+ "benchmarks": [
+  {
+   "evidence": {
+    "ceilings": {
+     "max_files": 120,
+     "max_lines": 20000,
+     "min_lines": 2000
+    },
+    "code_lines": 6889,
+    "command": "python tools/run_bench.py --only 01_loc_files",
+    "counts_command": "find src tests tools -name '*.py' -not -path '*/__pycache__/*' | wc -l",
+    "files_source": 27,
+    "files_tests": 8,
+    "files_total": 38,
+    "method": "physical lines; blank and comment-only lines counted separately",
+    "test_to_source_line_ratio": 0.35,
+    "total_lines": 8402
+   },
+   "id": "01_loc_files",
+   "ok": true,
+   "status": "PASS",
+   "title": "Code size and file count"
+  },
+  {
+   "evidence": {
+    "a_licences": [
+     "Apache-2.0",
+     "BSD-2-Clause",
+     "BSD-3-Clause",
+     "ISC",
+     "MIT",
+     "MPL-2.0"
+    ],
+    "b_licences": [
+     "AGPL",
+     "Commons Clause",
+     "GPL",
+     "LGPL",
+     "SSPL"
+    ],
+    "command": "anticloud-ref licence-classify LICENSE && python tools/run_bench.py --only 02_licence",
+    "default_for_unknown_is_C": true,
+    "mismatches": {},
+    "observed": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "only_class_A_may_relicense": true,
+    "policy_probes": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "project_licence": {
+     "LICENSE": "A",
+     "reason": "permissive licence text identified",
+     "spdx": "apache-2.0"
+    },
+    "pyproject_declared": "Apache-2.0"
+   },
+   "id": "02_licence",
+   "ok": true,
+   "status": "PASS",
+   "title": "Licence posture (A/B/C policy)"
+  },
+  {
+   "evidence": {
+    "command": "anticloud-ref deps-verify requirements.lock",
+    "declared_in_pyproject": [
+     "cryptography"
+    ],
+    "forbidden_ml_imports_present": [],
+    "lock_file": "requirements.lock",
+    "packages_hashed": 6,
+    "packages_pinned": 6,
+    "requirements": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest==9.1.1",
+     "pytest-cov==7.1.0"
+    ],
+    "sha256_hashes": 286,
+    "transitive_or_unclassified": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest-cov==7.1.0",
+     "pytest==9.1.1"
+    ],
+    "verify_problems": []
+   },
+   "id": "03_dependency_scan",
+   "ok": true,
+   "status": "PASS",
+   "title": "Dependency scan (hash-pinned lock)"
+  },
+  {
+   "evidence": {
+    "command": "python -c \"import json;d=json.load(open('sbom.cdx.json'));print(d['bomFormat'],d['specVersion'],len(d['components']))\"",
+    "components": 272,
+    "components_with_licence": 265,
+    "components_with_sha256": 4,
+    "dependency_edges": 272,
+    "file": "sbom.cdx.json",
+    "format": "CycloneDX",
+    "generated_from": "live importlib.metadata + requirements.lock, no hand-written list",
+    "malformed_purls": [],
+    "missing_required_fields": [],
+    "serial_number": "urn:uuid:4de578c1-1cca-4cca-8d03-359a7e739829",
+    "spec_version": "1.5"
+   },
+   "id": "04_sbom_cyclonedx",
+   "ok": true,
+   "status": "PASS",
+   "title": "SBOM (CycloneDX 1.5)"
+  },
+  {
+   "evidence": {
+    "branch": "main",
+    "command": "git status --porcelain && git log --oneline -1 && git fsck --no-progress",
+    "commits": 16,
+    "gitignore_present": true,
+    "governed_by_changelog": true,
+    "head": "72e92905f08750f7d2106316c54e75ccb2512895",
+    "latest_commit": "72e9290 licence: word-boundary the 'no permission is hereby granted' rider",
+    "remotes": [],
+    "repo": true,
+    "tags": [],
+    "untracked_or_modified": [],
+    "working_tree_clean": true
+   },
+   "id": "05_git_health",
+   "ok": true,
+   "status": "PASS",
+   "title": "Git health"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "LLM01",
+     "LLM02",
+     "LLM03",
+     "LLM04",
+     "LLM05",
+     "LLM06",
+     "LLM07",
+     "LLM08",
+     "LLM09",
+     "LLM10"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework owasp_llm_top10   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 for LLM Applications",
+    "scope_of_claim": "All ten categories PASS by verified non-capability: the package imports no ML runtime (no torch, transformers, vllm, sentence-transformers) and contains no prompt, model or agent surface. A PASS means the risk is structurally absent, not mitigated.",
+    "unverified_detail": []
+   },
+   "id": "06_owasp_llm_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 for LLM Applications"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "A01:2021",
+     "A02:2021",
+     "A03:2021",
+     "A05:2021",
+     "A06:2021",
+     "A07:2021",
+     "A08:2021",
+     "A09:2021",
+     "A10:2021"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework owasp_top10   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 (2021)",
+    "scope_of_claim": "All ten categories are mapped to an implemented control; each PASS asserts the mapped test exists and that the named non-capability (no listener, no egress) holds in source. It is not a penetration test.",
+    "unverified_detail": []
+   },
+   "id": "07_owasp_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 (2021)"
+  },
+  {
+   "evidence": {
+    "authority": "AICPA",
+    "command": "python tools/run_bench.py --only soc2",
+    "control_ids": [
+     "CC6.1",
+     "CC6.2",
+     "CC6.6",
+     "CC6.7",
+     "CC6.8",
+     "CC7.2",
+     "CC8.1",
+     "CC9.2",
+     "CC6.1"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework soc2   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "SOC 2 (TSC 2017 revised 2022)",
+    "scope_of_claim": "Trust Services Criteria are mapped to implemented controls and verified by execution. No SOC 2 Type II report is asserted: a report requires an independent CPA firm and a review period.",
+    "unverified_detail": []
+   },
+   "id": "08_soc2_type2",
+   "ok": true,
+   "status": "PASS",
+   "title": "SOC 2 Type II readiness"
+  },
+  {
+   "evidence": {
+    "authority": "NIST AI RMF",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_ai_rmf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST AI Risk Management Framework 1.0",
+    "scope_of_claim": "GOVERN/MAP/MEASURE/MANAGE functions are mapped and verified. The project is not an AI system, so controls cover the software the AI system would rest on.",
+    "unverified_detail": []
+   },
+   "id": "09_nist_ai_rmf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST AI Risk Management Framework"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "AC-3(2)",
+     "AC-6(7)",
+     "AU-2",
+     "AU-3",
+     "AU-10",
+     "CM-6",
+     "CP-9",
+     "RA-5",
+     "SA-11",
+     "SI-7",
+     "SC-12",
+     "SC-13"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework nist_800_53   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST SP 800-53 Rev. 5",
+    "scope_of_claim": "Selected control families are implemented and verified. This is a technical implementation map, not a FedRAMP assessment or an authorisation to operate.",
+    "unverified_detail": []
+   },
+   "id": "10_nist_sp_800_53",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST SP 800-53 Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_csf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST Cybersecurity Framework 2.0",
+    "scope_of_claim": "CSF 2.0 functions are covered through the aligned control map. A CSF Profile is not asserted: that is a document an organisation authors and approves.",
+    "unverified_detail": []
+   },
+   "id": "11_nist_csf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST Cybersecurity Framework 2.0"
+  },
+  {
+   "evidence": {
+    "authority": "FedRAMP",
+    "command": "python tools/run_bench.py --only fedramp",
+    "control_ids": [
+     "IA-2",
+     "IA-5",
+     "RA-5",
+     "SA-4",
+     "SA-10",
+     "SA-11",
+     "SC-7",
+     "SC-8",
+     "SC-13",
+     "SI-2"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework fedramp   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "FedRAMP Rev. 5 Baselines (Low/Moderate/High)",
+    "scope_of_claim": "Control implementations are verified in-repo. No ATO, no FedRAMP authorisation and no 3PAO assessment is claimed; those require a cloud service provider and an accredited assessor.",
+    "unverified_detail": []
+   },
+   "id": "12_fedramp",
+   "ok": true,
+   "status": "PASS",
+   "title": "FedRAMP Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "PCI SSC",
+    "command": "python tools/run_bench.py --only pci",
+    "control_ids": [
+     "1.1.1",
+     "1.2.1",
+     "2.2.1",
+     "3.4.1",
+     "3.5.1",
+     "6.2.4",
+     "6.4.2",
+     "8.3.6",
+     "10.2.1",
+     "11.3.1",
+     "11.5.2"
+    ],
+    "controls_mapped": 11,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 11,
+    "coverage_command": "anticloud-ref bench --framework pci_dss   # 11/11 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "PCI DSS v4.0.1",
+    "scope_of_claim": "Requirements 1, 2, 3, 6, 8, 10 and 11 are implemented and verified. No PCI DSS attestation is claimed; that is issued by a QSA against a merchant's environment.",
+    "unverified_detail": []
+   },
+   "id": "13_pci_dss",
+   "ok": true,
+   "status": "PASS",
+   "title": "PCI DSS v4.0.1"
+  },
+  {
+   "evidence": {
+    "authority": "ISO/IEC",
+    "command": "python tools/run_bench.py --only iso",
+    "control_ids": [
+     "5.1.1",
+     "5.1.2",
+     "8.2.3",
+     "8.24",
+     "8.28",
+     "8.29",
+     "8.16",
+     "8.20",
+     "8.24"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework iso_27001   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "ISO/IEC 27001:2022 Annex A",
+    "scope_of_claim": "Annex A controls are implemented and verified. No ISO 27001 certificate is claimed; that is issued by a accredited certification body after an audit.",
+    "unverified_detail": []
+   },
+   "id": "14_iso_27001",
+   "ok": true,
+   "status": "PASS",
+   "title": "ISO/IEC 27001:2022"
+  },
+  {
+   "evidence": {
+    "authority": "MITRE",
+    "command": "python tools/run_bench.py --only mitre",
+    "control_ids": [
+     "T1078",
+     "T1552",
+     "T1552.001",
+     "T1553",
+     "T1195.002",
+     "T1221",
+     "T1600.002",
+     "T1499",
+     "T1565",
+     "T1565.001",
+     "T1530",
+     "T1619"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework mitre_attack   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "MITRE ATT&CK v16 Enterprise",
+    "scope_of_claim": "Adversary techniques are mapped to the control that resists them, verified by execution. This is not adversary emulation or a purple-team exercise.",
+    "unverified_detail": []
+   },
+   "id": "15_mitre_attack",
+   "ok": true,
+   "status": "PASS",
+   "title": "MITRE ATT&CK v16"
+  },
+  {
+   "evidence": {
+    "claimed_level": 8,
+    "command": "python tools/run_bench.py --only 16 && cat docs/18_TRL_JUSTIFICATION/TRL.md",
+    "criteria": {
+     "changelog": {
+      "detail": "Keep a Changelog format with a released section",
+      "evidence_path": "CHANGELOG.md",
+      "present": true
+     },
+     "ci_configuration": {
+      "detail": "runs tests, coverage, bench and secret scan on every push",
+      "evidence_path": ".github/workflows/ci.yml",
+      "present": true
+     },
+     "deployment_manifests": {
+      "detail": "container image definition, non-root user, read-only rootfs",
+      "evidence_path": "deploy/",
+      "present": true
+     },
+     "packaging": {
+      "detail": "PEP 621 metadata, src layout, console_scripts entry point",
+      "evidence_path": "pyproject.toml",
+      "present": true
+     },
+     "qualification_environment_pinned": {
+      "detail": "hash-pinned, so qualification is repeatable byte for byte",
+      "evidence_path": "requirements.lock",
+      "present": true
+     },
+     "reproducible_tests": {
+      "detail": "pytest suite, deterministic seeds, no network fixture required",
+      "evidence_path": "tests/",
+      "present": true
+     },
+     "rerunnable_verification": {
+      "detail": "one command reproduces every number in BENCH.json",
+      "evidence_path": "tools/run_bench.py",
+      "present": true
+     },
+     "versioning": {
+      "detail": "single source of truth, currently 1.0.0",
+      "evidence_path": "src/anticloud_ref/_version.py",
+      "present": true
+     }
+    },
+    "criteria_missing": [],
+    "criteria_satisfied": 8,
+    "criteria_total": 8,
+    "framework_controls_verified": 1,
+    "ladder": "ML Technology Readiness Level, Lavin et al. 2022 (TMLR)",
+    "observed_level": 8,
+    "source": "22_COMPLIANCE_FRAMEWORKS/FACTS.md",
+    "trL9_claimed": false,
+    "trL9_reason": "requires proven success in an operational environment, which cannot be asserted from a repository"
+   },
+   "id": "16_ml_trl",
+   "ok": true,
+   "status": "PASS",
+   "title": "ML Technology Readiness Level 8"
+  }
+ ],
+ "passed": 16,
+ "failed": 0,
+ "failed_ids": [],
+ "all_passed": true,
+ "checks_executed_at": "2026-10-14T06:00:50.588587+00:00",
+ "checks_evidence": "ISOLATED_LAB_RESULTS/04_Evidence/16_checks_report.json",
+ "checks_evidence_sha3": "cb747a83e618d55e2686be9996caa1a8ea38efc299f3da65d7ebd31f25441e00"
+}

@@ -1,0 +1,3 @@
+# Architecture — K_MESHCORE
+
+See upstream documentation at https://github.com/meshcore-dev/MeshCore
